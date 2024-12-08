@@ -1,21 +1,12 @@
 import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import { setupCounter } from "./counter.js";
+import VanillaJSRouter from "@daleighan/vanilla-js-router";
+import { Component as CatmullRom } from "./CatmullRom";
+import { Component as CatmullRom3d } from "./CatmullRom3d";
+const Home = "<div>Home</div>";
+const routes = {
+  "/": Home,
+  "/catmull-rom": CatmullRom,
+  "/catmull-rom-3d": CatmullRom3d,
+};
 
-document.querySelector("#app").innerHTML = `
-  <div>
-
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`;
-
-setupCounter(document.querySelector("#counter"));
+const router = new VanillaJSRouter("base", routes);
